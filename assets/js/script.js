@@ -33,7 +33,7 @@ $(".btn").on("click", function (event) {
 
 function getCity(city) {
     var currentDate = moment().format("LL");
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + apiKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&APPID=" + apiKey;
 
     $.ajax({url: queryURL, type: "GET"}).then(function (response) {
         console.log(response);
