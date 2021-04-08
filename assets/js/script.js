@@ -82,3 +82,9 @@ function displayCities() {
       }
     }
 
+function getUV (lat, lon) {
+    var uvIndexLink = "https://api.openweathermap.org/data/2.5/uvi/forecast?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon + "&cnt=1";
+    $.ajax({url: uvIndexLink, type: "GET"}).then(function (response) {
+        $("#uv").text("UV Index: " + response[0].value);
+    });
+}
