@@ -30,3 +30,8 @@ $(".btn").on("click", function (event) {
     displayCities();
     getCity();
 });
+
+function getCity(city) {
+    var currentDate = moment().format("LL");
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=standard&appid=" + apiKey;
+}
