@@ -88,3 +88,30 @@ function getUV (lat, lon) {
         $("#uv").text("UV Index: " + response[0].value);
     });
 }
+
+function forecast(city) {
+    var forecastLink = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apiKey;
+
+    $.ajax({url: forecastLink, type: "GET"}).then(function (response) {
+        var list = response.list;
+        console.log(response);
+        $("#fiveDayForecast").html("");
+        for (var i =39; i >=0; i = i - 8) {
+            var temp = ((list[i].main.temp).toFixed(2));
+            var iconId = list[i].weather[0].icon;
+            var humidity = list[i].main.humidity;
+            var date = new Date(list[i].dt_txt);
+
+            var day = date.getDate();
+            var month = date.getMonth();
+            var year = date.getFullYear();
+
+            var formatDate = '${day}/${month +1}/${year}';
+            var col = $("<div>");
+            col.addClass("col");
+            var itemcard = $("<div>");
+            itemcard.addClass("card");
+            col.append(itemcard);
+        }
+    })
+}
