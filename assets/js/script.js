@@ -53,3 +53,27 @@ function getCity(city) {
         input.val("");
     });
 }
+
+function displayCities() {
+    var limit;
+
+    if (cities.length < 10) {
+        limit = cities.length;
+    } else {
+        limit = 10;
+    }
+    $("#citySearch").html("");
+    for (var c = 0; c < limit; c++) {
+        var citySearch = $("<div");
+        citySearch.addClass("row").css({
+            textAlign: "center",
+            border: "1px solid black",
+            height: "50px",
+            lineHeight: "50px",
+            paddingLeft: "40px",
+        });
+        citySearch.html(cities[c]);
+        $("#citySearch").prepend(citySearch);
+    }
+    }
+}
