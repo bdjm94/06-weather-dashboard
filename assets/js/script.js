@@ -33,14 +33,14 @@ $(".btn").on("click", function (event) {
 
 function getCity(city) {
     var currentDate = moment().format("LL");
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=standard&appid=" + apiKey;
+    var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=metric&appid=" + apiKey;
 
-    $.ajax({url: queryURL, type: "GET"}).then(function (response){
+    $.ajax({url: queryURL, type: "GET"}).then(function (response) {
         console.log(response);
         var iconLoc = response.weather[0].icon;
         
         var iconLink = "https://openweathermap.org/img/wn/" + iconLoc + "@2x.png";
-        var iconImg = $("<img");
+        var iconImg = $("<img>");
         iconImg.attr("src", iconLink);
 
         $(".currentCity").text(response.name + " (" + currentDate + ")");
@@ -48,6 +48,8 @@ function getCity(city) {
         $("#temp").text("Temperature: " + response.main.temp + " °C");
         $("humidity").text("Humidity: " + response.main.humidity + " %");
         $("#wind").text("Wind Speed: " + response.wind.speed + " KM/H")
+        var tempC = (response.main.temp - 273.15) * 1.8 + 32;
+        $(".tempC").text("Temperature (Kelvin) " + tempC);
         getUV(response.coord.lat, response.coord.lon);
         forecast(city);
         input.val("");
@@ -64,7 +66,7 @@ function displayCities() {
     }
     $("#citySearch").html("");
     for (var c = 0; c < limit; c++) {
-        var citySearch = $("<div");
+        var citySearch = $("<div>");
         citySearch.addClass("row").css({
             textAlign: "center",
             border: "1px solid black",
@@ -75,8 +77,8 @@ function displayCities() {
         citySearch.html(cities[c]);
         $("#citySearch").prepend(citySearch);
 
-        citySearch.attr("id", '${cities[c]}');
-        $('#${cities[c]}').on("click", function () {
+        citySearch.attr("id", "${cities[c]}");
+        $("#${cities[c]}").on("click", function () {
             getCity($(this).text());
         });
       }
@@ -106,7 +108,7 @@ function forecast(city) {
             var month = date.getMonth();
             var year = date.getFullYear();
 
-            var formatDate = '${day}/${month +1}/${year}';
+            var formatDate = "'${day}/${month +1}/${year}'";
             var col = $("<div>");
             col.addClass("col");
             var itemcard = $("<div>");
@@ -117,7 +119,7 @@ function forecast(city) {
 
             var iconUrl = "https://openweathermap.org/img/wn/" + iconId + "@2x.png";
 
-            var weatherImg = $("<img");
+            var weatherImg = $("<img>");
             weatherImg.attr("src", iconUrl);
 
             var p1 = $("<p>").text("Temp: " + temp + "°C");
