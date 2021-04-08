@@ -7,7 +7,7 @@ body {
 
 .header {
     height: 150px;
-    background-color: rgba(14, 23, 133, 0.527);
+    background-color: rgba(70, 16, 170, 0.527);
     font-size: 50px;
     color: white;
     text-align: center;
@@ -27,4 +27,31 @@ body {
     padding-top: 5px;
     padding-right: 0px;
     margin-right: 0px;
+}
+
+#todaysWeather {
+    margin-top: 20px;
+    margin-left: 1px;
+    line-break: normal;
+}
+
+#citySearch {
+    text-align: center;
+    justify-content: center;
+}
+
+p {
+    font-weight: 500;
+    text-align: center
+}
+
+#temp,
+#humidity,
+#wind,
+#uv {
+    text-align: left;
+}
+
+#fiveDayForecast {
+    margin-top: 20px;
 }
