@@ -5,8 +5,26 @@ body {
     background-size: cover;
 }
 
-.header-style {
-    font-size: 40px;
+.header {
+    height: 150px;
+    background-color: rgba(14, 23, 133, 0.527);
+    font-size: 50px;
     color: white;
     text-align: center;
+    line-height: 140px;
+    margin-bottom: 30px;
+}
+
+.container {
+    border: 2px solid black;
+}
+
+.row {
+    background-color: whitesmoke;
+}
+
+.form-inline {
+    padding-top: 5px;
+    padding-right: 0px;
+    margin-right: 0px;
 }
