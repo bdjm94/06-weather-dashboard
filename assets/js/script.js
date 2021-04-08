@@ -127,6 +127,8 @@ function forecast(city) {
             itemcard.append(weatherImg);
             itemcard.append(p1);
             itemcard.append(p2);
+
+            $("#fiveDayForecast").prepend(col);
         }
-    })
+    });
 }
