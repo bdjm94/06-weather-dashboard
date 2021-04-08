@@ -34,4 +34,22 @@ $(".btn").on("click", function (event) {
 function getCity(city) {
     var currentDate = moment().format("LL");
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=standard&appid=" + apiKey;
+
+    $.ajax({url: queryURL, type: "GET"}).then(function (response){
+        console.log(response);
+        var iconLoc = response.weather[0].icon;
+        
+        var iconLink = "https://openweathermap.org/img/wn/" + iconLoc + "@2x.png";
+        var iconImg = $("<img");
+        iconImg.attr("src", iconLink);
+
+        $(".currentCity").text(response.name + " (" + currentDate + ")");
+        $(".currentCity").append(iconImg);
+        $("#temp").text("Temperature: " + response.main.temp + " °C");
+        $("humidity").text("Humidity: " + response.main.humidity + " %");
+        $("#wind").text("Wind Speed: " + response.wind.speed + " KM/H")
+        getUV(response.coord.lat, response.coord.lon);
+        forecast(city);
+        input.val("");
+    });
 }
