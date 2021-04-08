@@ -112,6 +112,16 @@ function forecast(city) {
             var itemcard = $("<div>");
             itemcard.addClass("card");
             col.append(itemcard);
+
+            var p = $("<p>").text(formatDate);
+
+            var iconUrl = "https://openweathermap.org/img/wn/" + iconId + "@2x.png";
+
+            var weatherImg = $("<img");
+            weatherImg.attr("src", iconUrl);
+
+            var p1 = $("<p>").text("Temp: " + temp + "°C");
+            var p2 = $("<p>").text("Humidity: " + humidity + "%");
         }
     })
 }
