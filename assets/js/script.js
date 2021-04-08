@@ -74,6 +74,11 @@ function displayCities() {
         });
         citySearch.html(cities[c]);
         $("#citySearch").prepend(citySearch);
+
+        citySearch.attr("id", '${cities[c]}');
+        $('#${cities[c]}').on("click", function () {
+            getCity($(this).text());
+        });
+      }
     }
-    }
-}
+
