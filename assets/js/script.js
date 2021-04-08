@@ -122,6 +122,11 @@ function forecast(city) {
 
             var p1 = $("<p>").text("Temp: " + temp + "°C");
             var p2 = $("<p>").text("Humidity: " + humidity + "%");
+
+            itemcard.append(p);
+            itemcard.append(weatherImg);
+            itemcard.append(p1);
+            itemcard.append(p2);
         }
     })
 }
