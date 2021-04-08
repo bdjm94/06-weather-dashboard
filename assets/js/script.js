@@ -48,8 +48,6 @@ function getCity(city) {
         $("#temp").text("Temperature: " + response.main.temp + " °C");
         $("humidity").text("Humidity: " + response.main.humidity + " %");
         $("#wind").text("Wind Speed: " + response.wind.speed + " KM/H")
-        var tempC = (response.main.temp - 273.15) * 1.8 + 32;
-        $(".tempC").text("Temperature (Kelvin) " + tempC);
         getUV(response.coord.lat, response.coord.lon);
         forecast(city);
         input.val("");
@@ -77,8 +75,8 @@ function displayCities() {
         citySearch.html(cities[c]);
         $("#citySearch").prepend(citySearch);
 
-        citySearch.attr("id", "${cities[c]}");
-        $("#${cities[c]}").on("click", function () {
+        citySearch.attr("id", `${cities[c]}`);
+        $(`#${cities[c]}`).on("click", function () {
             getCity($(this).text());
         });
       }
@@ -99,7 +97,7 @@ function forecast(city) {
         console.log(response);
         $("#fiveDayForecast").html("");
         for (var i =39; i >=0; i = i - 8) {
-            var temp = ((list[i].main.temp).toFixed(2));
+            var temp = ((list[i].main.temp - 273.15).toFixed(2));
             var iconId = list[i].weather[0].icon;
             var humidity = list[i].main.humidity;
             var date = new Date(list[i].dt_txt);
@@ -108,7 +106,7 @@ function forecast(city) {
             var month = date.getMonth();
             var year = date.getFullYear();
 
-            var formatDate = "'${day}/${month +1}/${year}'";
+            var formatDate = `${day}/${month +1}/${year}`;
             var col = $("<div>");
             col.addClass("col");
             var itemcard = $("<div>");
