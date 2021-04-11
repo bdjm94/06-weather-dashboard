@@ -46,7 +46,7 @@ function getCity(city) {
         $(".currentCity").text(response.name + " (" + currentDate + ")");
         $(".currentCity").append(iconImg);
         $("#temp").text("Temperature: " + response.main.temp + " °C");
-        $("humidity").text("Humidity: " + response.main.humidity + " %");
+        $("#humidity").text("Humidity: " + response.main.humidity + " %");
         $("#wind").text("Wind Speed: " + response.wind.speed + " KM/H")
         getUV(response.coord.lat, response.coord.lon);
         forecast(city);
