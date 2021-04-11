@@ -28,7 +28,7 @@ $(".btn").on("click", function (event) {
         saveCities();
     }
     displayCities();
-    getCity();
+    getCity(city);
 });
 
 function getCity(city) {
