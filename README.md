@@ -6,7 +6,7 @@ This weather dashboard was designed to give you today's weather forecast as well
 
 ## Functionality
 
-Upon opening the [Weather Dashboard](https://bdjm94.github.io/weather-dashboard/), you are displayed with a nice background of a weather vane and the title. It will also show a search box asking you to "search for a city". There will be a "5-Day Forecast" being shown, but no other data will be displayed. Upon searching for a city, it will bring up that city, along with the current date and weather forecast, as well as a 5-day weather forecast for that city. Your searches will be saved so you can quickly switch between previously searched cities to get their weather forecast.
+Upon opening the [Weather Dashboard](https://bdjm94.github.io/06-weather-dashboard/), you are displayed with a nice background of a weather vane and the title. It will also show a search box asking you to "search for a city". There will be a "5-Day Forecast" being shown, but no other data will be displayed. Upon searching for a city, it will bring up that city, along with the current date and weather forecast, as well as a 5-day weather forecast for that city. Your searches will be saved so you can quickly switch between previously searched cities to get their weather forecast.
 
 ## Weather Dashboard in Use
 
